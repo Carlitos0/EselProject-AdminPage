@@ -10,21 +10,21 @@ include('config/conexion.php');
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="api/saveProduct.php" method="POST" enctype="multipart/form-data">
+                <form action="controller/saveUsuario.php" method="POST" enctype="multipart/form-data">
                     <div class="d-flex justify-content-around">
                         <div class="col-md-8">
-                            <input type="hidden" name="codpro">
+                            <input type="hidden" name="codusu">
                             <div class="form-group">
-                                <label for="">Nombre:</label>
-                                <input type="text" id="nombre" name="nompro" class="form-control">
+                                <label for="">Nombre de Usuario:</label>
+                                <input type="text" id="nomusu" name="nomusu" class="form-control" placeholder="User name">
                             </div>
                             <div class="form-group">
-                                <label for="">Descripcion:</label>
-                                <textarea id="descripcion" name="despro" class="form-control" rows="3"></textarea>
+                                <label for="">Apellidos:</label>
+                                <input id="apeusu" name="apeusu" class="form-control" placeholder="Surname">
                             </div>
                             <div class="form-group">
-                                <label for="">Precio:</label>
-                                <input type="number" id="precio" name="prepro" class="form-control">
+                                <label for="">Email:</label>
+                                <input type="email" id="emausu" name="emausu" class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <label for="">Estado:</label>
@@ -34,12 +34,12 @@ include('config/conexion.php');
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="">Imagen:</label>
-                                <input class="form-control" type="file" id="imagen" name="rutimapro">
+                                <label for="">Contraseña Para el Usuario:</label>
+                                <input class="form-control" type="password" id="pasusu" name="pasusu" placeholder="Password">
                             </div>
                         </div>
                         <div class="col-md-2 d-flex justify-content-center align-items-center">
-                            <button type="submit" class="btn btn-primary btn-block" name="saveProduct">Guardar</button>
+                            <button type="submit" class="btn btn-primary btn-block" name="saveUsuario">Grabar</button>
                         </div>
                     </div>
                 </form>
@@ -56,10 +56,10 @@ include('config/conexion.php');
     <div class="container py-4">
         <div class="col-md-15 mx-auto">
             <div class="card p-3 shadow">
-                <form action="productos.php" method="POST">
+                <form action="usuarios.php" method="POST">
                     <h3>Buscador</h3>
-                    <label class="my-2 text-uppercase fw-bolder text-primary">Product Name to filter</label>
-                    <input type="text" name="box_search" id="box_search" class="form-control bg-light p-2" placeholder="Product Name">
+                    <label class="my-2 text-uppercase fw-bolder text-primary">User Name to filter</label>
+                    <input type="text" name="user_search" id="user_search" class="form-control bg-light p-2" placeholder="User Name">
                 </form>
             </div>
         </div>
@@ -76,10 +76,10 @@ include('config/conexion.php');
             } ?>
         </div>
 
-        <div id="datos" class="p-2 my-3">
+        <div id="datosUser" class="p-2 my-3">
         </div>
 
-        <button class="btn btn-warning btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#modal">Agregar Nuevo Producto</button>
+        <button class="btn btn-warning btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#modal">Grabar Nuevo Usuario</button>
     </div>
 </main>
 

@@ -24,7 +24,7 @@
                     <a class="nav-link fw-bold text-white" href="/gestion_esel-copia/productos.php">Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-white" href="/gestion_esel-copia/productos.php">Servicios</a>
+                    <a class="nav-link fw-bold text-white" href="/gestion_esel-copia/usuarios.php">Usuarios</a>
                 </li>
             </ul>
         </div>
