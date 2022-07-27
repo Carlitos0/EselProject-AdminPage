@@ -19,6 +19,7 @@
                     <th scope="col" class="text-center">Email</th>
                     <th scope="col" class="text-center">Password</th>
                     <th scope="col" class="text-center">Status</th>
+                    <th scope="col" class="text-center">User Type</th>
                     <th scope="col" class="text-center">Control</th>
                 </tr>   
             </thead>
@@ -31,6 +32,7 @@
             <td>'.$fila["emausu"].'</td>
             <td>'.$fila["pasusu"].'</td>
             <td>'.$fila["estado"].'</td>
+            <td>'.$fila["user_type"].'</td>
             <td>
                 <div class="d-flex justify-content-around">
                     <a href="./controller/updateUsuario.php?codusu='.$fila["codusu"].'" class="btn"><i class="fa-solid fa-pen text-info"></i></a>   

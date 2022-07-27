@@ -1,5 +1,10 @@
 <?php
 include('config/conexion.php');
+include('utilities/functions.php');
+if(!isLoggedIn()){
+    $_SESSION['msg'] = "Debes Logearte Primero";
+    header('Location: index.php');
+}
 ?>
 <?php include 'includes/header.php' ?>
 <div class="modal" id="modal">
@@ -33,6 +38,17 @@ include('config/conexion.php');
                                     <option value=0>Inactivo</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="">Tipo de Usuario:</label>
+                                <select class="form-select" id="user_type" name="user_type">
+                                    <option value='admin'>Admin</option>
+                                    <option value='cliente'>Cliente</option>
+                                </select>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="">Tipo de Usuario</label>
+                                <input type="text" id="user_type" name="user_type" class="form-control" placeholder="user_type">
+                            </div> -->
                             <div class="form-group">
                                 <label for="">Contraseña Para el Usuario:</label>
                                 <input class="form-control" type="password" id="pasusu" name="pasusu" placeholder="Password">
@@ -72,7 +88,7 @@ include('config/conexion.php');
                     <?= $_SESSION['message'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php session_unset();
+            <?php unset($_SESSION['message']);
             } ?>
         </div>
 

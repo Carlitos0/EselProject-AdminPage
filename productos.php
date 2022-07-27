@@ -1,5 +1,18 @@
 <?php
 include('config/conexion.php');
+include('utilities/functions.php');
+if (!isLoggedIn()) {
+    $_SESSION['msg'] = "Debes Logearte Primero";
+    header('Location: index.php');
+}
+/* if(isLoggedIn()){
+    $_SESSION['message'] = "Debe cerrar sesion";
+    $_SESSION['message_type'] = "danger";
+} */
+/* else{
+    $_SESSION['message'] = "Debes cerrar sesion primero";
+    header('Location: productos.php');
+} */
 ?>
 <?php include 'includes/header.php' ?>
 <div class="modal" id="modal">
@@ -72,7 +85,7 @@ include('config/conexion.php');
                     <?= $_SESSION['message'] ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            <?php session_unset();
+            <?php unset($_SESSION['message']);
             } ?>
         </div>
 

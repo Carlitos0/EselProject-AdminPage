@@ -1,4 +1,14 @@
-<?php include("./config/conexion.php") ?>
+<?php 
+    include("./config/conexion.php");
+    include("./utilities/functions.php");
+    if (isLoggedIn()) {
+        echo "<script>
+                    setTimeout(function(){
+                        location.href = 'productos.php';
+                    },1200);
+                    </script>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,34 +28,7 @@
         }
     </style>
 </head>
-
 <body>
-    <?php
-    if (isset($_POST['ingresar'])) {
-        $email = $_POST['emausu'];
-        $password = $_POST['pasusu'];
-
-        $query = "SELECT * FROM usuario WHERE emausu = '$email' AND pasusu = '$password' LIMIT 1";
-        $result = mysqli_query($con, $query);
-        if ($email == "admin@esel.com" and $password == "123") {
-            $_SESSION['message']  = "Ingreso Correcto";
-            $_SESSION['message_color']  = "success";
-            echo "<script>
-                setTimeout(function(){
-                    location.href = 'productos.php';
-                },900);
-            </script>";
-        } else {
-            $_SESSION['message']  = "Credenciales Incorrectas";
-            $_SESSION['message_color']  = "danger";
-            /* echo "<script>
-                    setTimeout(fuction(){
-                        location.href = 'productos.php';
-                    },3000);
-                </script>"; */
-        }
-    }
-    ?>
     <div class="container pt-5">
         <div class="col-10 col-md-7 col-sm-10 col-lg-4 pt-5 mx-auto">
             <div class="container p-2 mt-4">
@@ -54,7 +37,16 @@
                         <?= $_SESSION['message'] ?>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                <?php session_unset();
+                <?php unset($_SESSION['message']);
+                } ?>
+            </div>
+            <div class="container p-2 mt-2">
+                <?php if (isset($_SESSION['msg'])) { ?>
+                    <div class="alert alert-danger ?> alert-dismissible fade show" role="alert">
+                        <?= $_SESSION['msg'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php unset($_SESSION['msg']);
                 } ?>
             </div>
             <div class="card">
