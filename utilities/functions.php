@@ -1,15 +1,19 @@
 <?php 
     include('./config/conexion.php');
-    session_start();
+    /* session_start(); */
 
     function isLoggedIn(){
-        if(isset($_SESSION['admin'])){
+        if(isset($_SESSION['super-admin'])){
             return true;
         }
         else{
             return false;
         }
     }
+
+   /*  function showAndHide(){
+        if(isset($_SESSION['admin']))
+    } */
 
     function getUserById($id){
         global $con;
@@ -27,8 +31,8 @@
     }
     if(isset($_GET['logout'])){
         session_destroy();
-        unset($_SESSION['admin']);
-        header("Location: index.php");
+        unset($_SESSION['super-admin']);
+        header("Location: login.php");
     }
 
     if(isset($_POST['ingresar'])){
@@ -47,8 +51,8 @@
 
             if(mysqli_num_rows($rstl)==1){
                 $logged_in_user = mysqli_fetch_assoc($rstl);
-                if($logged_in_user['user_type'] == 'admin'){
-                    $_SESSION['admin'] = $logged_in_user;
+                if($logged_in_user['user_type'] == 'super-admin' or $logged_in_user['user_type'] == 'admin'){
+                    $_SESSION['super-admin'] = $logged_in_user;
                     $_SESSION['message'] = "Verficacion correcta: Está logeado";
                     $_SESSION['message_color']  = "success";
                     echo "<script>

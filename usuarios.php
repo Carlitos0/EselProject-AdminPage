@@ -1,9 +1,9 @@
 <?php
 include('config/conexion.php');
 include('utilities/functions.php');
-if(!isLoggedIn()){
+if (!isLoggedIn()) {
     $_SESSION['msg'] = "Debes Logearte Primero";
-    header('Location: index.php');
+    header('Location: login.php');
 }
 ?>
 <?php include 'includes/header.php' ?>
@@ -92,10 +92,12 @@ if(!isLoggedIn()){
             } ?>
         </div>
 
-        <div id="datosUser" class="p-2 my-3">
+        <button class="btn btn-primary btn-lg ms-2" data-bs-toggle="modal" data-bs-target="#modal">Grabar Nuevo Usuario</button>
+        <div class="bg-white table-responsive">
+            <div id="datosUser" class="p-2 my-2">
+            </div>
         </div>
 
-        <button class="btn btn-warning btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#modal">Grabar Nuevo Usuario</button>
     </div>
 </main>
 

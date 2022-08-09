@@ -16,7 +16,7 @@
             echo "la imagen llego";
             echo "nombre de la img:".$_FILES['rutimapro']['tmp_name'].'';
         } */
-        $query = "INSERT INTO producto(nompro,despro,prepro,estado,rutimapro) VALUES ('$PrName','$PrDescription',$PrPrice,$PrStatus,'$PrRutImage')";
+        $query = "INSERT INTO producto(nompro,despro,prepro,estado,rutimapro,cantidad) VALUES ('$PrName','$PrDescription',$PrPrice,$PrStatus,'$PrRutImage',0)";
         $result = mysqli_query($con,$query);
         if($result){
             if(move_uploaded_file($_FILES['rutimapro']['tmp_name'],"../../Proyecto-Certificador\images\productos/".$PrRutImage)){

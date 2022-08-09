@@ -22,10 +22,11 @@
         $NewLastname = $_POST['apeusu'];
         $NewEmail = $_POST['emausu'];
         $NewStatus = $_POST['estado'];
+        $NewUserType = $_POST['user_type'];
         $NewPass = $_POST['pasusu'];
 
         $query = "UPDATE usuario set nomusu = '$NewName', apeusu = '$NewLastname', emausu = '$NewEmail',
-        estado = '$NewStatus', pasusu = '$NewPass' WHERE codusu = '$id'";
+        estado = '$NewStatus', pasusu = '$NewPass', user_type = '$NewUserType' WHERE codusu = '$id'";
         $result = mysqli_query($con,$query);
         if($result){
             $_SESSION['message']="User updated Succesfully";
@@ -67,6 +68,13 @@
                                 <option value=0>Inactivo</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                                <label for="">Tipo de Usuario:</label>
+                                <select class="form-select" id="user_type" name="user_type">
+                                    <option value='admin'>Admin</option>
+                                    <option value='cliente'>Cliente</option>
+                                </select>
+                            </div>
                         <div class="form-group">
                                 <label for="">Contraseña</label>
                                 <input class="form-control" type="text" id="contraseña" name="pasusu" value="<?php echo $UPass?>">

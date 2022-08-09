@@ -3,7 +3,7 @@ include('config/conexion.php');
 include('utilities/functions.php');
 if (!isLoggedIn()) {
     $_SESSION['msg'] = "Debes Logearte Primero";
-    header('Location: index.php');
+    header('Location: login.php');
 }
 /* if(isLoggedIn()){
     $_SESSION['message'] = "Debe cerrar sesion";
@@ -29,15 +29,15 @@ if (!isLoggedIn()) {
                             <input type="hidden" name="codpro">
                             <div class="form-group">
                                 <label for="">Nombre:</label>
-                                <input type="text" id="nombre" name="nompro" class="form-control">
+                                <input type="text" id="nombre" name="nompro" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Descripcion:</label>
-                                <textarea id="descripcion" name="despro" class="form-control" rows="3"></textarea>
+                                <textarea id="descripcion" name="despro" class="form-control" rows="3" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="">Precio:</label>
-                                <input type="number" id="precio" name="prepro" class="form-control">
+                                <input type="number" id="precio" name="prepro" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Estado:</label>
@@ -76,6 +76,7 @@ if (!isLoggedIn()) {
                 </form>
             </div>
         </div>
+
     </div>
 
     <div class="container">
@@ -89,10 +90,17 @@ if (!isLoggedIn()) {
             } ?>
         </div>
 
-        <div id="datos" class="p-2 my-3">
+        <div class="d-flex flex-column flex-md-row">
+            <a href="./actualizarStock.php" class="btn indigo-color btn-lg mx-0 mx-md-2 mb-2 mb-md-0">Actualizar Stock de Productos</a>
+            <button class="btn btn-primary btn-lg " data-bs-toggle="modal" data-bs-target="#modal">Agregar Nuevo Producto</button>
+        </div>
+        <div class="bg-white">
+            <div id="datos" class="p-2 my-3 table-responsive">
+            </div>
         </div>
 
-        <button class="btn btn-warning btn-lg mb-3" data-bs-toggle="modal" data-bs-target="#modal">Agregar Nuevo Producto</button>
+
+
     </div>
 </main>
 

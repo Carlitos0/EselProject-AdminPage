@@ -47,3 +47,28 @@ $(document).on('keyup','#user_search',function(){
         BuscarUsuario();
     }
 });
+
+/*  ENTRADAS */
+/* function Entradas(cslt){
+    $.ajax({
+        url: './utilities/busquedaEntrada.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {cslt: cslt},
+    })
+    .done(function(rpt){
+        $('#dataEntrada').html(rpt);
+    })
+    .fail(function(){
+        console.log("error");
+    })
+}
+$(document).on('keyup','#entrada_search',function(){
+    const valor = $(this).val();
+    if(valor != ""){
+        Entradas(valor);
+    }
+    else{
+        Entradas();
+    }
+}); */
